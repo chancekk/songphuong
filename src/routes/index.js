@@ -1,17 +1,22 @@
-import { Suspense, lazy } from 'react';
-import { Navigate, useRoutes, useLocation } from 'react-router-dom';
+// import RememberCard from 'pages/dashboard/GhiNhoTheBai';
+import { lazy, Suspense } from 'react';
+import { Navigate, useLocation, useRoutes } from 'react-router-dom';
+// import RememberCard from 'src/pages/dashboard/Ghi-nho-the-bai';
+
 // layouts
-import MainLayout from '../layouts/main';
 import DashboardLayout from '../layouts/dashboard';
 import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
+import MainLayout from '../layouts/main';
 // guards
-import GuestGuard from '../guards/GuestGuard';
 import AuthGuard from '../guards/AuthGuard';
+import GuestGuard from '../guards/GuestGuard';
 // import RoleBasedGuard from '../guards/RoleBasedGuard';
 // config
 import { PATH_AFTER_LOGIN } from '../config';
 // components
 import LoadingScreen from '../components/LoadingScreen';
+import RememberCard from '../pages/dashboard/GhiNhoTheBai';
+// eslint-disable-next-line
 
 // ----------------------------------------------------------------------
 
@@ -72,7 +77,7 @@ export default function Router() {
         { path: 'booking', element: <GeneralBooking /> },
 
         {
-          path: 'e-commerce',
+          path: 'Ngoi-nha-toan-hoc',
           children: [
             { element: <Navigate to="/dashboard/e-commerce/shop" replace />, index: true },
             { path: 'shop', element: <EcommerceShop /> },
@@ -80,11 +85,11 @@ export default function Router() {
             { path: 'list', element: <EcommerceProductList /> },
             { path: 'product/new', element: <EcommerceProductCreate /> },
             { path: 'product/:name/edit', element: <EcommerceProductEdit /> },
-            { path: 'checkout', element: <EcommerceCheckout /> },
+            { path: 'one', element: <EcommerceCheckout /> },
           ],
         },
         {
-          path: 'user',
+          path: 'ngoi-nha-truyen',
           children: [
             { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
             { path: 'profile', element: <UserProfile /> },
@@ -92,25 +97,31 @@ export default function Router() {
             { path: 'list', element: <UserList /> },
             { path: 'new', element: <UserCreate /> },
             { path: ':name/edit', element: <UserCreate /> },
-            { path: 'account', element: <UserAccount /> },
+            { path: 'one', element: <UserAccount /> },
           ],
         },
         {
-          path: 'invoice',
+          path: 'Ngoi-nha-khoa-hoc',
           children: [
             { element: <Navigate to="/dashboard/invoice/list" replace />, index: true },
             { path: 'list', element: <InvoiceList /> },
-            { path: ':id', element: <InvoiceDetails /> },
+            { path: 'one', element: <InvoiceDetails /> },
             { path: ':id/edit', element: <InvoiceEdit /> },
             { path: 'new', element: <InvoiceCreate /> },
           ],
         },
+        {
+          path: 'ngoi-nha-do-vat-biet-nghi',
+          children: [{ path: 'ghi-nho-the-bai', element: <RememberCard /> }],
+        },
+
         {
           path: 'blog',
           children: [
             { element: <Navigate to="/dashboard/blog/posts" replace />, index: true },
             { path: 'posts', element: <BlogPosts /> },
             { path: 'post/:title', element: <BlogPost /> },
+            { path: 'new', element: <BlogNewPost /> },
             { path: 'new', element: <BlogNewPost /> },
           ],
         },

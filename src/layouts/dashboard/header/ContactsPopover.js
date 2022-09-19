@@ -32,20 +32,6 @@ export default function ContactsPopover() {
 
   return (
     <>
-      <IconButtonAnimate
-        color={open ? 'primary' : 'default'}
-        onClick={handleOpen}
-        sx={{
-          width: 40,
-          height: 40,
-          ...(open && {
-            bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.focusOpacity),
-          }),
-        }}
-      >
-        <Iconify icon={'eva:people-fill'} width={20} height={20} />
-      </IconButtonAnimate>
-
       <MenuPopover
         open={Boolean(open)}
         anchorEl={open}

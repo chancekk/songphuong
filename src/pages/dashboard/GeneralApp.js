@@ -36,7 +36,11 @@ export default function GeneralApp() {
   return (
     <Page title="General: App">
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Grid container spacing={3}>
+        <Grid>
+          <h1>Page 1</h1>
+          <p>khang</p>
+        </Grid>
+        {/* <Grid container spacing={3}>
           <Grid item xs={12} md={8}>
             <AppWelcome
               title={`Chào mừng trở lại \n ${user?.displayName}`}
@@ -162,7 +166,7 @@ export default function GeneralApp() {
               <AppWidget title="Applications" total={55566} icon={'eva:email-fill'} color="warning" chartData={75} />
             </Stack>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Container>
     </Page>
   );

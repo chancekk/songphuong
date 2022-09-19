@@ -68,26 +68,6 @@ export default function AccountPopover() {
 
   return (
     <>
-      <IconButtonAnimate
-        onClick={handleOpen}
-        sx={{
-          p: 0,
-          ...(open && {
-            '&:before': {
-              zIndex: 1,
-              content: "''",
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              position: 'absolute',
-              bgcolor: (theme) => alpha(theme.palette.grey[900], 0.8),
-            },
-          }),
-        }}
-      >
-        <MyAvatar />
-      </IconButtonAnimate>
-
       <MenuPopover
         open={Boolean(open)}
         anchorEl={open}
