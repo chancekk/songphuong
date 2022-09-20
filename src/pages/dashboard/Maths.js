@@ -1,5 +1,5 @@
 import Page from '../../components/Page';
-import { Container } from '@mui/material';
+import { Container, SliderThumb } from '@mui/material';
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -13,6 +13,36 @@ import { CardActionArea } from '@mui/material';
 import SvgIconStyle from 'components/SvgIconStyle';
 import Modal from '@mui/material/Modal';
 import video from '../../assets/video/demo.mp4';
+import { pathCase } from 'change-case';
+
+const fakeData = [
+  {
+    id: '1',
+    title: 'Video hinh học',
+    thumnail: '',
+    desc: 'Video mô tả cấu trúc của hình học môn toán',
+  },
+  {
+    id: '2',
+    title: 'Video hinh học 1',
+    thumnail: '',
+    desc: 'Video mô tả cấu trúc của hình học môn toán',
+  },
+  {
+    id: '3',
+
+    title: 'Video hinh học 2',
+    thumnail: '',
+    desc: 'Video mô tả cấu trúc của hình học môn toán',
+  },
+  {
+    id: '4',
+
+    title: 'Video hinh học 3',
+    thumnail: '',
+    desc: 'Video mô tả cấu trúc của hình học môn toán',
+  },
+];
 
 const style = {
   position: 'absolute',
@@ -20,10 +50,12 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '55.5rem',
+  maxWidth: '100%',
   bgcolor: 'background.paper',
   boxShadow: 24,
   p: 4,
 };
+
 function Maths() {
   const getIcon = (name) => (
     <SvgIconStyle
@@ -50,84 +82,34 @@ function Maths() {
     <Page>
       <Container>
         <Box sx={{ flexGrow: 1 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={12} md={4}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea onClick={handleOpen} sx={{ height: 150, backgroundColor: 'black' }}>
-                  {ICONS.play}
-                </CardActionArea>
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Video Hình Học
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Video mô tả cấu trúc của hình học môn toán
-                  </Typography>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <video style={style} width="100%" height="500" controls>
-                      <source src={video} type="video/mp4" />
-                    </video>
-                  </Modal>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} sm={12} md={4}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea onClick={handleOpen} sx={{ height: 150, backgroundColor: 'black' }}>
-                  {ICONS.play}
-                </CardActionArea>
-
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Video Hình Học
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Video mô tả cấu trúc của hình học môn toán
-                  </Typography>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <video style={style} width="100%" height="500" controls>
-                      <source src={video} type="video/mp4" />
-                    </video>
-                  </Modal>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} sm={12} md={4}>
-              <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea onClick={handleOpen} sx={{ height: 150, backgroundColor: 'black' }}>
-                  {ICONS.play}
-                </CardActionArea>
-
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Video Hình Học
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Video mô tả cấu trúc của hình học môn toán
-                  </Typography>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <video style={style} width="100%" height="500" controls>
-                      <source src={video} type="video/mp4" />
-                    </video>
-                  </Modal>
-                </CardContent>
-              </Card>
-            </Grid>
+          <Grid container spacing={2} key={fakeData.id}>
+            {fakeData.map((fakeData) => (
+              <Grid item xs={12} sm={6} md={4}>
+                <Card>
+                  <CardActionArea onClick={handleOpen} sx={{ height: 150, backgroundColor: 'black' }}>
+                    {ICONS.play}
+                  </CardActionArea>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {fakeData.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {fakeData.desc}
+                    </Typography>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
+                      <video style={style} width="100%" height="500" controls autoPlay>
+                        <source src={video} type="video/mp4" />
+                      </video>
+                    </Modal>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Box>
       </Container>
