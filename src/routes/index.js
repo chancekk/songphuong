@@ -15,7 +15,14 @@ import GuestGuard from '../guards/GuestGuard';
 import { PATH_AFTER_LOGIN } from '../config';
 // components
 import LoadingScreen from '../components/LoadingScreen';
-import RememberCard from '../pages/dashboard/GhiNhoTheBai';
+import RememberCard from '../pages/dashboard/RememberCard';
+import SmartMusic from 'pages/dashboard/SmartMusic';
+import CatFashion from 'pages/dashboard/CatFashion';
+import Paradigm from 'pages/dashboard/Paradigm';
+import VanHoc from 'pages/dashboard/Literary';
+import HomeStory from 'pages/dashboard/HomeStory';
+import Maths from 'pages/dashboard/Maths';
+import Science from 'pages/dashboard/Science';
 // eslint-disable-next-line
 
 // ----------------------------------------------------------------------
@@ -112,7 +119,29 @@ export default function Router() {
         },
         {
           path: 'ngoi-nha-do-vat-biet-nghi',
-          children: [{ path: 'ghi-nho-the-bai', element: <RememberCard /> }],
+          children: [
+            { path: 'ghi-nho-the-bai', element: <RememberCard /> },
+            { path: 'am-nhac-tri-tue', element: <SmartMusic /> },
+            { path: 'thoi-trang-cho-meo', element: <CatFashion /> },
+            { path: 'doan-hinh', element: <CatFashion /> },
+            { path: 'mo-phong-hinh-hoc-khong-gian', element: <Paradigm /> },
+          ],
+        },
+        {
+          path: 'ngoi-nha-van-hoc',
+          children: [{ path: 'van-hoc', element: <VanHoc /> }],
+        },
+        {
+          path: 'ngoi-nha-truyen',
+          children: [{ path: 'truyen', element: <HomeStory /> }],
+        },
+        {
+          path: 'ngoi-nha-toan-hoc',
+          children: [{ path: 'toan-hoc', element: <Maths /> }],
+        },
+        {
+          path: 'ngoi-nha-khoa-hoc',
+          children: [{ path: 'khoa-hoc', element: <Science /> }],
         },
 
         {

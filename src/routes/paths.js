@@ -92,6 +92,30 @@ export const PATH_DASHBOARD = {
     view: (title) => path(ROOTS_DASHBOARD, `/blog/post/${title}`),
     demoView: path(ROOTS_DASHBOARD, '/blog/post/apply-these-7-secret-techniques-to-improve-event'),
   },
+  test: {
+    root: path(ROOTS_DASHBOARD, '/ngoi-nha-do-vat-biet-nghi'),
+    demo: path(ROOTS_DASHBOARD, '/ngoi-nha-do-vat-biet-nghi/ghi-nho-the-bai'),
+    music: path(ROOTS_DASHBOARD, '/ngoi-nha-do-vat-biet-nghi/am-nhac-tri-tue'),
+    cat: path(ROOTS_DASHBOARD, '/ngoi-nha-do-vat-biet-nghi/thoi-trang-cho-meo'),
+    guess: path(ROOTS_DASHBOARD, '/ngoi-nha-do-vat-biet-nghi/doan-hinh'),
+    paradigm: path(ROOTS_DASHBOARD, '/ngoi-nha-do-vat-biet-nghi/mo-phong-hinh-hoc-khong-gian'),
+  },
+  test1: {
+    root: path(ROOTS_DASHBOARD, '/ngoi-nha-van-hoc'),
+    literary: path(ROOTS_DASHBOARD, '/ngoi-nha-van-hoc/van-hoc'),
+  },
+  test2: {
+    root: path(ROOTS_DASHBOARD, '/ngoi-nha-truyen'),
+    story: path(ROOTS_DASHBOARD, '/ngoi-nha-truyen/truyen'),
+  },
+  test3: {
+    root: path(ROOTS_DASHBOARD, '/ngoi-nha-toan-hoc'),
+    maths: path(ROOTS_DASHBOARD, '/ngoi-nha-toan-hoc/toan-hoc'),
+  },
+  test4: {
+    root: path(ROOTS_DASHBOARD, '/ngoi-nha-khoa-hoc'),
+    science: path(ROOTS_DASHBOARD, '/ngoi-nha-khoa-hoc/khoa-hoc'),
+  },
 };
 
 export const PATH_DOCS = 'https://docs-minimals.vercel.app/introduction';

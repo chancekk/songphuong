@@ -49,45 +49,45 @@ const navConfig = [
       // USER
       {
         title: 'Ngôi Nhà Truyện',
-        path: PATH_DASHBOARD.user.root,
+        path: PATH_DASHBOARD.test2.root,
         icon: ICONS.game,
-        children: [{ title: 'one', path: PATH_DASHBOARD.user.account }],
+        children: [{ title: 'one', path: PATH_DASHBOARD.test2.story }],
       },
 
       // E-COMMERCE
       {
         title: 'Ngôi Nhà Toán Học',
-        path: PATH_DASHBOARD.eCommerce.root,
+        path: PATH_DASHBOARD.test3.root,
         icon: ICONS.cart,
-        children: [{ title: 'one', path: PATH_DASHBOARD.eCommerce.checkout }],
+        children: [{ title: 'one', path: PATH_DASHBOARD.test3.maths }],
       },
 
       // INVOICE
       {
         title: 'Ngôi Nhà Khoa Học',
-        path: PATH_DASHBOARD.invoice.root,
+        path: PATH_DASHBOARD.test4.root,
         icon: ICONS.invoice,
-        children: [{ title: 'one', path: PATH_DASHBOARD.invoice.demoEdit }],
+        children: [{ title: 'one', path: PATH_DASHBOARD.test4.science }],
       },
 
       // BLOG
       {
         title: 'Ngôi Nhà Đồ Vật Biết Nghĩ',
-        path: PATH_DASHBOARD.blog.root,
+        path: PATH_DASHBOARD.test.root,
         icon: ICONS.blog,
         children: [
-          { title: 'Ghi Nhớ Thẻ Bài', path: PATH_DASHBOARD.blog.posts },
-          { title: 'Âm Nhạc Trí Tuệ', path: PATH_DASHBOARD.blog.demoView },
-          { title: 'Thời Trang Cho Mèo', path: PATH_DASHBOARD.blog.new },
-          { title: 'Đoán Hình', path: PATH_DASHBOARD.blog.new },
-          { title: 'Mô Phỏng Hình Học Không Gian', path: PATH_DASHBOARD.blog.new },
+          { title: 'Ghi Nhớ Thẻ Bài', path: PATH_DASHBOARD.test.demo },
+          { title: 'Âm Nhạc Trí Tuệ', path: PATH_DASHBOARD.test.music },
+          { title: 'Thời Trang Cho Mèo', path: PATH_DASHBOARD.test.cat },
+          { title: 'Đoán Hình', path: PATH_DASHBOARD.test.guess },
+          { title: 'Mô Phỏng Hình Học Không Gian', path: PATH_DASHBOARD.test.paradigm },
         ],
       },
       {
         title: 'Ngôi Nhà Văn Học',
-        path: PATH_DASHBOARD.invoice.root,
+        path: PATH_DASHBOARD.test1.root,
         icon: ICONS.game,
-        children: [{ title: 'one', path: PATH_DASHBOARD.invoice.demoEdit }],
+        children: [{ title: 'one', path: PATH_DASHBOARD.test1.literary }],
       },
     ],
   },
