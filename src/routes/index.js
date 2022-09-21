@@ -141,7 +141,7 @@ export default function Router() {
         },
         {
           path: 'ngoi-nha-khoa-hoc',
-          children: [{ path: 'khoa-hoc', element: <Science /> }],
+          children: [{ path: 'khoa-hoc', element: <UserList /> }],
         },
 
         {

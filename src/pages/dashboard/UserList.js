@@ -1,5 +1,5 @@
 import { paramCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 // @mui
 import {
@@ -55,8 +55,8 @@ const ROLE_OPTIONS = [
 
 const TABLE_HEAD = [
   { id: 'name', label: 'Name', align: 'left' },
-  { id: 'company', label: 'Company', align: 'left' },
-  { id: 'role', label: 'Role', align: 'left' },
+  { id: 'company', label: 'Api', align: 'left' },
+  { id: 'role', label: 'Details', align: 'left' },
   { id: 'isVerified', label: 'Verified', align: 'center' },
   { id: 'status', label: 'Status', align: 'left' },
   { id: '' },
@@ -88,7 +88,12 @@ export default function UserList() {
 
   const navigate = useNavigate();
 
-  const [tableData, setTableData] = useState(_userList);
+  const [tableData, setTableData] = useState([]);
+  useEffect(() => {
+    fetch(`https://api.github.com/users`)
+      .then((response) => response.json())
+      .then((response) => setTableData(response));
+  }, []);
 
   const [filterName, setFilterName] = useState('');
 

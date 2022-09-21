@@ -21,7 +21,7 @@ UserTableRow.propTypes = {
 export default function UserTableRow({ row, selected, onEditRow, onSelectRow, onDeleteRow }) {
   const theme = useTheme();
 
-  const { name, avatarUrl, company, role, isVerified, status } = row;
+  const { id, url, type, login, html_url, company, role, isVerified, status, avatar_url } = row;
 
   const [openMenu, setOpenMenuActions] = useState(null);
 
@@ -40,16 +40,16 @@ export default function UserTableRow({ row, selected, onEditRow, onSelectRow, on
       </TableCell>
 
       <TableCell sx={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar alt={name} src={avatarUrl} sx={{ mr: 2 }} />
+        <Avatar alt={id} src={avatar_url} sx={{ mr: 2 }} />
         <Typography variant="subtitle2" noWrap>
-          {name}
+          {login}
         </Typography>
       </TableCell>
 
-      <TableCell align="left">{company}</TableCell>
+      <TableCell align="left">{url}</TableCell>
 
       <TableCell align="left" sx={{ textTransform: 'capitalize' }}>
-        {role}
+        {html_url}
       </TableCell>
 
       <TableCell align="center">
@@ -70,7 +70,7 @@ export default function UserTableRow({ row, selected, onEditRow, onSelectRow, on
           color={(status === 'banned' && 'error') || 'success'}
           sx={{ textTransform: 'capitalize' }}
         >
-          {status}
+          {type}
         </Label>
       </TableCell>
 
