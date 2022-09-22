@@ -35,6 +35,7 @@ import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 import { TableEmptyRows, TableHeadCustom, TableNoData, TableSelectedActions } from '../../components/table';
 // sections
 import { UserTableToolbar, UserTableRow } from '../../sections/@dashboard/user/list';
+import { async } from '@firebase/util';
 
 // ----------------------------------------------------------------------
 
@@ -141,6 +142,13 @@ export default function UserList() {
     (!dataFiltered.length && !!filterRole) ||
     (!dataFiltered.length && !!filterStatus);
 
+  const RoleOptionApi = (datatable) => {
+    const typelist = datatable.map((user) => user.type);
+    return typelist.filter(function (type, pos) {
+      return typelist.indexOf(type) === pos;
+    });
+  };
+
   return (
     <Page title="User: List">
       <Container maxWidth={themeStretch ? false : 'lg'}>
@@ -184,7 +192,7 @@ export default function UserList() {
             filterRole={filterRole}
             onFilterName={handleFilterName}
             onFilterRole={handleFilterRole}
-            optionsRole={ROLE_OPTIONS}
+            optionsRole={RoleOptionApi(tableData)}
           />
 
           <Scrollbar>
@@ -283,7 +291,7 @@ function applySortFilter({ tableData, comparator, filterName, filterStatus, filt
   tableData = stabilizedThis.map((el) => el[0]);
 
   if (filterName) {
-    tableData = tableData.filter((item) => item.name.toLowerCase().indexOf(filterName.toLowerCase()) !== -1);
+    tableData = tableData.filter((item) => item.login.toLowerCase().indexOf(filterName.toLowerCase()) !== '');
   }
 
   if (filterStatus !== 'all') {
@@ -291,7 +299,7 @@ function applySortFilter({ tableData, comparator, filterName, filterStatus, filt
   }
 
   if (filterRole !== 'all') {
-    tableData = tableData.filter((item) => item.role === filterRole);
+    tableData = tableData.filter((item) => item.type === filterRole);
   }
 
   return tableData;
