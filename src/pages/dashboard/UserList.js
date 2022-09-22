@@ -142,7 +142,7 @@ export default function UserList() {
     (!dataFiltered.length && !!filterRole) ||
     (!dataFiltered.length && !!filterStatus);
 
-  const RoleOptionApi = (datatable) => {
+  const TypeOptionApi = (datatable) => {
     const typelist = datatable.map((user) => user.type);
     return typelist.filter(function (type, pos) {
       return typelist.indexOf(type) === pos;
@@ -172,7 +172,7 @@ export default function UserList() {
         />
 
         <Card>
-          <Tabs
+          {/* <Tabs
             allowScrollButtonsMobile
             variant="scrollable"
             scrollButtons="auto"
@@ -183,7 +183,7 @@ export default function UserList() {
             {STATUS_OPTIONS.map((tab) => (
               <Tab disableRipple key={tab} label={tab} value={tab} />
             ))}
-          </Tabs>
+          </Tabs> */}
 
           <Divider />
 
@@ -192,7 +192,7 @@ export default function UserList() {
             filterRole={filterRole}
             onFilterName={handleFilterName}
             onFilterRole={handleFilterRole}
-            optionsRole={RoleOptionApi(tableData)}
+            optionsRole={TypeOptionApi(tableData)}
           />
 
           <Scrollbar>
@@ -279,7 +279,7 @@ export default function UserList() {
 
 // ----------------------------------------------------------------------
 
-function applySortFilter({ tableData, comparator, filterName, filterStatus, filterRole }) {
+function applySortFilter({ tableData, comparator, filterName, filterStatus, filterRole: filterType }) {
   const stabilizedThis = tableData.map((el, index) => [el, index]);
 
   stabilizedThis.sort((a, b) => {
@@ -291,15 +291,15 @@ function applySortFilter({ tableData, comparator, filterName, filterStatus, filt
   tableData = stabilizedThis.map((el) => el[0]);
 
   if (filterName) {
-    tableData = tableData.filter((item) => item.login.toLowerCase().indexOf(filterName.toLowerCase()) !== '');
+    tableData = tableData.filter((item) => item.login.toLowerCase().indexOf(filterName.toLowerCase()) !== -1);
   }
 
   if (filterStatus !== 'all') {
     tableData = tableData.filter((item) => item.status === filterStatus);
   }
 
-  if (filterRole !== 'all') {
-    tableData = tableData.filter((item) => item.type === filterRole);
+  if (filterType !== 'all') {
+    tableData = tableData.filter((item) => item.type === filterType);
   }
 
   return tableData;
